@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaDownload, FaGithub } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 import MyImage from "../assets/bg1.png"
 import Container from "./Container";
@@ -40,7 +40,7 @@ const Banner = () => {
               {/* Facebook */}
               <a
                 className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-[#04bfff] text-[#04bfff] hover:bg-[#04bfff] hover:text-[#1f242d] transition-all duration-300"
-                href="#"
+                href="https://www.facebook.com/ashadulislam6156rs/"
               >
                 <svg
                   aria-hidden="true"
@@ -58,14 +58,14 @@ const Banner = () => {
               {/* Github */}
               <a
                 className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-[#04bfff] text-[#04bfff] hover:bg-[#04bfff] hover:text-[#1f242d] transition-all duration-300"
-                href="#"
+                href="https://github.com/ashadulislam6156rs"
               >
                 <FaGithub className="text-[25px]" />
               </a>
               {/* Instagram */}
               <a
                 className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-[#04bfff] text-[#04bfff] hover:bg-[#04bfff] hover:text-[#1f242d] transition-all duration-300"
-                href="#"
+                href="https://www.instagram.com/ashadulislam6156rs/"
               >
                 <svg
                   className="w-6 h-6"
@@ -79,7 +79,7 @@ const Banner = () => {
               {/* LinkedIn */}
               <a
                 className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-[#04bfff] text-[#04bfff] hover:bg-[#04bfff] hover:text-[#1f242d] transition-all duration-300"
-                href="#"
+                href="https://www.linkedin.com/in/ashadulislam6156rs/"
               >
                 <svg
                   aria-hidden="true"
@@ -94,9 +94,10 @@ const Banner = () => {
 
             {/* Download CV Button */}
             <a
-              className="mt-8 self-center lg:self-start bg-[#04bfff] text-black font-medium py-3 px-8 rounded-full shadow-[0_0_15px_#04bfff] hover:shadow-[0_0_30px_#04bfff] transition-shadow duration-300"
-              href="#"
+              className="mt-8 flex gap-2 items-center self-center lg:self-start bg-[#04bfff] text-black font-medium py-3 px-8 rounded-full shadow-[0_0_15px_#04bfff] hover:shadow-[0_0_30px_#04bfff] transition-shadow duration-300"
+              href="https://drive.google.com/file/d/1-mgrVx83xP17RpbdqgXQuTZ0VNKyNH7Y/view?usp=sharing"
             >
+              <FaDownload />
               Download Resume
             </a>
           </div>

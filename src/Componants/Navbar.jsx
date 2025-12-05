@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 import Container from "./Container";
 
 const Navbar = () => {
@@ -13,7 +13,6 @@ const Navbar = () => {
     { name: "Projects", to: "projects" },
     { name: "Skill", to: "skill" },
     { name: "Education", to: "education" },
-    { name: "Testimonial", to: "testimonial" },
     { name: "Contact", to: "contact" },
   ];
 
@@ -21,15 +20,20 @@ const Navbar = () => {
     if (darkMode) document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
   }, [darkMode]);
+    
+    
+   const handleHireMe = () => {
+     window.location.href = "mailto:ashadulislam6156rs@gmail.com";
+   };
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 dark:bg-gray-900 shadow-md">
+    <div className="fixed top-0 left-0 w-full z-50 dark:bg-gray-900 shadow-sm shadow-gray-600">
       <Container>
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a className="text-2xl font-bold dark:text-white" href="#">
-              Asha<span className="text-[#00bfff]">dul</span>
+              Asha<span className="text-[#00bfff]">dul</span> islam
             </a>
           </div>
 
@@ -60,15 +64,19 @@ const Navbar = () => {
               {darkMode ? "☀️" : "🌙"}
             </button>
 
-            <a
-              className="hidden sm:inline-block bg-[#00bfff] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#00bfff]/90 transition-all shadow-lg hover:shadow-xl"
-              href="#"
+            <button
+              className="hidden cursor-pointer sm:inline-block bg-[#00bfff] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#00bfff]/90 transition-all shadow-lg hover:shadow-xl"
+              onClick={() => {
+                handleHireMe();
+              }}
             >
               Hire Me
-            </a>
+            </button>
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
               className="md:hidden flex flex-col space-y-1.5 p-2"
             >
               <span

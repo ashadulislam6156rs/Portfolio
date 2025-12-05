@@ -7,6 +7,7 @@ import {
   FaTools,
   FaMobile,
 } from "react-icons/fa";
+import Container from "./Container";
 
 const Services = () => {
   const services = [
@@ -50,41 +51,38 @@ const Services = () => {
   ];
 
   return (
-    <section
-      id="services"
-      className="py-16 sm:py-24 bg-background-light dark:bg-background-dark font-display"
-    >
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white dark:text-white">
-            My <span className="text-[#04bfff]">Services</span>
-          </h2>
-        </div>
+    <Container>
+      <section
+        id="services"
+        className="py-16 sm:py-24 bg-background-light dark:bg-background-dark font-display"
+      >
+        <div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white dark:text-white">
+              My <span className="text-[#04bfff]">Services</span>
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-[#1d293b] dark:bg-slate-800 rounded-lg p-8 flex flex-col items-start text-left shadow-lg hover:shadow-sm hover:shadow-[#04bfff]  transform hover:-translate-y-2 transition-transform duration-300"
-            >
-              <div className="mb-5">{service.icon}</div>
-              <h3 className="text-xl font-bold mb-3 text-white dark:text-white">
-                {service.title}
-              </h3>
-              <p className="text-[#ffffff83] dark:text-slate-400 mb-6 flex-grow">
-                {service.description}
-              </p>
-              <a
-                href="#"
-                className="inline-block bg-[#04bfff] text-black font-semibold py-2 px-6 rounded-full transition-colors duration-300"
+          <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-[#1d293b] dark:bg-slate-800 rounded-lg p-8 flex flex-col items-start text-left shadow-lg hover:shadow-sm hover:shadow-[#04bfff]  transform hover:-translate-y-2 transition-transform duration-300"
               >
-                Read More
-              </a>
-            </div>
-          ))}
+                <div className="mb-5">{service.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-white dark:text-white">
+                  {service.title}
+                </h3>
+                <p className="text-[#ffffff83] dark:text-slate-400 mb-6 flex-grow">
+                  {service.description}
+                </p>
+                
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Container>
   );
 };
 

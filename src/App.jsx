@@ -20,9 +20,11 @@ function App() {
       <Projects></Projects>
       <Skills></Skills>
       <EducationTimeline></EducationTimeline>
-      <ClientTestimonials></ClientTestimonials>
+      {/* <ClientTestimonials></ClientTestimonials> */}
       <Contact></Contact>
-      <Footer></Footer>
+      <footer className="bg-[#04bfff]">
+        <Footer></Footer>
+      </footer>
     </div>
   );
 }

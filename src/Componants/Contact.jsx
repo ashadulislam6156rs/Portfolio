@@ -12,7 +12,7 @@ const Contact = () => {
             <p className="text-white text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">
               Get In Touch
             </p>
-            <p className="text-[#90b2cb] text-base font-normal leading-normal max-w-md">
+            <p className="text-[#ffffff83] text-base font-normal leading-normal max-w-md">
               Have a question, a project in mind, or just want to say hello? I'd
               love to hear from you. Fill out the form or use the contact
               details provided.
@@ -32,7 +32,7 @@ const Contact = () => {
                   <input
                     type="text"
                     placeholder="Enter your full name"
-                    className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-primary/50"
+                    className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50"
                   />
                 </label>
 
@@ -43,7 +43,7 @@ const Contact = () => {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-primary/50"
+                    className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50"
                   />
                 </label>
               </div>
@@ -53,7 +53,7 @@ const Contact = () => {
                 <input
                   type="text"
                   placeholder="What is this about?"
-                  className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-primary/50"
+                  className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50"
                 />
               </label>
 
@@ -62,11 +62,11 @@ const Contact = () => {
                 <textarea
                   placeholder="Write your message here..."
                   rows={6}
-                  className="form-textarea flex w-full rounded-lg p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-primary/50 resize-y"
+                  className="form-textarea flex w-full rounded-lg p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50 resize-y"
                 ></textarea>
               </label>
 
-              <button className="w-full sm:w-auto h-12 px-6 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors">
+              <button className="w-full sm:w-auto h-12 px-6 bg-[#04bfff] text-black font-bold rounded-lg hover:bg-[#04bfff]/90 transition-colors">
                 Send Message
               </button>
             </form>
@@ -80,55 +80,31 @@ const Contact = () => {
               </h3>
               <div className="flex flex-col gap-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
                     <MdMail size={24} />
                   </div>
                   <div>
-                    <p className="text-[#90b2cb] text-sm">Email</p>
+                    <p className="text-[#ffffff83] text-sm">Email</p>
                     <a
-                      href="mailto:hello@developer.com"
-                      className="text-white text-base font-medium hover:text-primary transition-colors"
+                      href="mailto:ashadulislam6156rs@gmail.com"
+                      className="text-white text-base font-medium hover:text-[#04bfff] transition-colors"
                     >
-                      hello@developer.com
+                      ashadulislam6156rs@gmail.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
                     <MdLocationOn size={24} />
                   </div>
                   <div>
-                    <p className="text-[#90b2cb] text-sm">Location</p>
+                    <p className="text-[#ffffff83] text-sm">Location</p>
                     <p className="text-white text-base font-medium">
-                      San Francisco, USA
+                      Uttara, Dhaka-Bangladesh
                     </p>
                   </div>
                 </div>
-              </div>
-
-              <div className="border-t border-[#315168]"></div>
-
-              <h3 className="text-white text-xl font-bold">Follow Me</h3>
-              <div className="flex items-center gap-4">
-                <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#315168] text-[#90b2cb] hover:bg-primary hover:text-white transition-colors"
-                >
-                  <FaLinkedin size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#315168] text-[#90b2cb] hover:bg-primary hover:text-white transition-colors"
-                >
-                  <FaGithub size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#315168] text-[#90b2cb] hover:bg-primary hover:text-white transition-colors"
-                >
-                  <FaTwitter size={20} />
-                </a>
               </div>
             </div>
           </div>
