@@ -1,0 +1,14 @@
+@import "tailwindcss";
+ @import "tailwindcss";
+ @plugin "daisyui" {
+  themes: dark --default, light --prefersdark;
+  themes: dark --default;
+
+ }
+
+/* *{
+@apply bg-[#1f242d]
+#04bfff
+#d0d1ce
+} */
+
