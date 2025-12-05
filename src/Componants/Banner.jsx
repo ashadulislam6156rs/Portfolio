@@ -20,7 +20,7 @@ const Banner = () => {
               <span className="text-[#04bfff]">
                 <Typewriter
                   options={{
-                    strings: ["Frontent Developer", "MERN Stack Developer"],
+                    strings: ["Frontend Developer", "MERN Stack Developer"],
                     autoStart: true,
                     loop: true,
                   }}
