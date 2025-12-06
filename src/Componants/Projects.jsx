@@ -45,10 +45,10 @@ const Projects = () => {
     <Container>
       <section
         id="projects"
-        className="py-5 sm:py-5 font-display bg-background-light dark:bg-background-dark"
+        className="py-7 sm:py-5 font-display bg-background-light dark:bg-background-dark"
       >
         <div>
-          <h2 className="text-3xl text-center font-bold pb-5 leading-tight tracking-tight text-[#04bfff] dark:text-white sm:text-4xl">
+          <h2 className="text-3xl text-center font-bold pb-5 pt-7 leading-tight tracking-tight text-[#04bfff] dark:text-white sm:text-4xl">
             My Projects
           </h2>
 

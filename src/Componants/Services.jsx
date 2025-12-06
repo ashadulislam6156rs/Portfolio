@@ -54,7 +54,7 @@ const Services = () => {
     <Container>
       <section
         id="services"
-        className="py-16 sm:py-24 bg-background-light dark:bg-background-dark font-display"
+        className="py-3 bg-background-light dark:bg-background-dark font-display"
       >
         <div>
           <div className="text-center mb-12">
