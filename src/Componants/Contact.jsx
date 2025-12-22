@@ -1,10 +1,55 @@
+
 import React from "react";
 import { MdMail, MdLocationOn } from "react-icons/md";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaPhone,
+} from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  // Smart click handlers
+  const handleEmailClick = () => {
+    const email = "ashadulislam6156rs@gmail.com";
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile) window.location.href = `mailto:${email}`;
+    else
+      window.open(
+        `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`,
+        "_blank"
+      );
+  };
+
+  const handlePhoneClick = () => {
+    const phone = "+8801859246156";
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile) window.location.href = `tel:${phone}`;
+    else {
+      navigator.clipboard.writeText(phone);
+      alert(`${phone} copied to clipboard!`);
+    }
+  };
+
+  const handleWhatsappClick = () => {
+    const phone = "01859246156";
+    const message = "Hello, I visited your portfolio";
+    const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile) window.location.href = waLink;
+    else window.open(waLink, "_blank");
+  };
+
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    // const email = e.target.email.value;
+    toast.success(`Thank you ${name}! Your message has been received.`)
+    
+  }
+
   return (
-    <section id="contact" className="flex-1 py-12 md:py-20 bg-background-dark">
+    <section id="contact" className="flex-1 py-7 md:py-20 bg-background-dark">
       <div className="px-4 sm:px-10 max-w-7xl mx-auto">
         {/* Heading */}
         <div className="flex flex-wrap justify-between gap-3 mb-10">
@@ -23,7 +68,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Form */}
           <div className="lg:col-span-3">
-            <form className="flex flex-col gap-6">
+            <form onSubmit={handleFormSubmit} className="flex flex-col gap-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <label className="flex flex-col flex-1">
                   <p className="text-white text-base font-medium pb-2">
@@ -31,7 +76,9 @@ const Contact = () => {
                   </p>
                   <input
                     type="text"
+                    required
                     placeholder="Enter your full name"
+                    name="name"
                     className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50"
                   />
                 </label>
@@ -42,6 +89,8 @@ const Contact = () => {
                   </p>
                   <input
                     type="email"
+                    name="email"
+                    required
                     placeholder="Enter your email address"
                     className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50"
                   />
@@ -79,21 +128,55 @@ const Contact = () => {
                 Contact Information
               </h3>
               <div className="flex flex-col gap-6">
-                <div className="flex items-center gap-4">
+                {/* Email */}
+                <div
+                  onClick={handleEmailClick}
+                  className="flex items-center gap-4 cursor-pointer hover:opacity-90 transition-opacity"
+                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
                     <MdMail size={24} />
                   </div>
                   <div>
                     <p className="text-[#ffffff83] text-sm">Email</p>
-                    <a
-                      href="mailto:ashadulislam6156rs@gmail.com"
-                      className="text-white text-base font-medium hover:text-[#04bfff] transition-colors"
-                    >
+                    <p className="text-white text-base font-medium hover:text-[#04bfff] transition-colors">
                       ashadulislam6156rs@gmail.com
-                    </a>
+                    </p>
                   </div>
                 </div>
 
+                {/* Phone */}
+                <div
+                  onClick={handlePhoneClick}
+                  className="flex items-center gap-4 cursor-pointer hover:opacity-90 transition-opacity"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
+                    <FaPhone size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[#ffffff83] text-sm">Phone</p>
+                    <p className="text-white text-base font-medium hover:text-[#04bfff] transition-colors">
+                      +8801859246156
+                    </p>
+                  </div>
+                </div>
+
+                {/* WhatsApp */}
+                <div
+                  onClick={handleWhatsappClick}
+                  className="flex items-center gap-4 cursor-pointer hover:opacity-90 transition-opacity"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
+                    <FaWhatsapp size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[#ffffff83] text-sm">WhatsApp</p>
+                    <p className="text-white text-base font-medium hover:text-[#04bfff] transition-colors">
+                      01859246156
+                    </p>
+                  </div>
+                </div>
+
+                {/* Location */}
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
                     <MdLocationOn size={24} />
@@ -115,3 +198,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import About from "./Componants/About";
 import Banner from "./Componants/Banner";
 import ClientTestimonials from "./Componants/ClientTestimonials";
@@ -8,8 +9,16 @@ import Navbar from "./Componants/Navbar"
 import Projects from "./Componants/Projects";
 import Services from "./Componants/Services";
 import Skills from "./Componants/Skills";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+
+  AOS.init({
+    duration: 800,
+    easing: "ease-out-cubic",
+    once: false,
+  });
 
   return (
     <div>
@@ -25,6 +34,7 @@ function App() {
       <footer className="bg-[#04bfff]">
         <Footer></Footer>
       </footer>
+      <ToastContainer />
     </div>
   );
 }

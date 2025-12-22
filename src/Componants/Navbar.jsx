@@ -6,6 +6,18 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
+
+  const handleEmailClick = () => {
+    const email = "ashadulislam6156rs@gmail.com";
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile) window.location.href = `mailto:${email}`;
+    else
+      window.open(
+        `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`,
+        "_blank"
+      );
+  };
+
   const links = [
     { name: "Home", to: "home" },
     { name: "About Us", to: "about" },
@@ -21,13 +33,9 @@ const Navbar = () => {
     else document.documentElement.classList.remove("dark");
   }, [darkMode]);
     
-    
-   const handleHireMe = () => {
-     window.location.href = "mailto:ashadulislam6156rs@gmail.com";
-   };
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 dark:bg-gray-900 shadow-sm shadow-gray-600">
+    <div className="fixed bg-[#000000c5] top-0 left-0 w-full z-50 dark:bg-gray-900 shadow-sm shadow-gray-600">
       <Container>
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -67,7 +75,7 @@ const Navbar = () => {
             <button
               className="hidden cursor-pointer sm:inline-block bg-[#00bfff] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#00bfff]/90 transition-all shadow-lg hover:shadow-xl"
               onClick={() => {
-                handleHireMe();
+                 handleEmailClick();
               }}
             >
               Hire Me
