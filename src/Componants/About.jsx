@@ -4,9 +4,11 @@ import Container from "./Container";
 import useInView from "./useInView";
 import Counter from "./Counter";
 import { motion } from "framer-motion";
+import useTheme from "../hook/useTheme";
 
 const About = () => {
   const { ref, inView } = useInView();
+  const { theme } = useTheme();
 
   const fadeInLeft = {
     hidden: { opacity: 0, x: -50 },
@@ -63,7 +65,11 @@ const About = () => {
               ABOUT ME
             </h2>
 
-            <p className="text-base sm:text-lg leading-relaxed">
+            <p
+              className={`text-base sm:text-lg leading-relaxed ${
+                theme === "dark" ? "text-slate-400" : "text-[#0000009f]"
+              }`}
+            >
               Hello, I’m Ashadul Islam. I’m a passionate MERN Stack Developer
               with a strong focus on building modern, clean, and scalable web
               applications. I work with JavaScript, React, Node.js, Express, and
@@ -82,7 +88,11 @@ const About = () => {
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
               >
-                <p className="text-3xl sm:text-4xl font-bold text-white">
+                <p
+                  className={`text-3xl sm:text-4xl font-bold ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
+                >
                   <Counter end={35} start={inView} />
                   <span className="text-[#04bfff]">+</span>
                 </p>
@@ -94,11 +104,17 @@ const About = () => {
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
               >
-                <p className="text-3xl sm:text-4xl font-bold text-white">
+                <p
+                  className={`text-3xl sm:text-4xl font-bold ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
+                >
                   <Counter end={97} start={inView} />
                   <span className="text-[#04bfff]">%</span>
                 </p>
-                <p className="text-sm text-gray-400 mt-1">Client Satisfaction</p>
+                <p className="text-sm text-gray-400 mt-1">
+                  Client Satisfaction
+                </p>
               </motion.div>
 
               <motion.div
@@ -106,11 +122,17 @@ const About = () => {
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
               >
-                <p className="text-3xl sm:text-4xl font-bold text-white">
+                <p
+                  className={`text-3xl sm:text-4xl font-bold  ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
+                >
                   <Counter end={1} start={inView} />
                   <span className="text-[#04bfff]">+</span>
                 </p>
-                <p className="text-sm text-gray-400 mt-1">Years of Experience</p>
+                <p className="text-sm text-gray-400 mt-1">
+                  Years of Experience
+                </p>
               </motion.div>
             </div>
           </motion.div>

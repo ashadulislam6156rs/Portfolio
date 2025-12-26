@@ -4,8 +4,12 @@ import Typewriter from "typewriter-effect";
 import MyImage from "../assets/bg1.png";
 import Container from "./Container";
 import { motion } from "framer-motion";
+import useTheme from "../hook/useTheme";
 
 const Banner = () => {
+
+  const { theme } = useTheme();
+
   return (
     <div id="home">
       <Container className="pt-35">
@@ -57,7 +61,7 @@ const Banner = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-2 text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0"
+              className={`mt-2  leading-relaxed max-w-lg mx-auto lg:mx-0 ${theme === "dark" ? "text-slate-400" : "text-[#0000009f]"}`}
             >
               MERN Stack Developer with strong expertise in React.js and
               Next.js. Skilled in building fast, scalable, and SEO-optimized

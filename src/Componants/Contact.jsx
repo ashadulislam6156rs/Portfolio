@@ -1,17 +1,16 @@
-
 import React from "react";
 import { MdMail, MdLocationOn } from "react-icons/md";
-import {
-  FaWhatsapp,
-  FaPhone,
-} from "react-icons/fa";
+import { FaWhatsapp, FaPhone } from "react-icons/fa";
 import { toast } from "react-toastify";
+import useTheme from "../hook/useTheme";
 
 const Contact = () => {
-  // Smart click handlers
+  const { theme } = useTheme();
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+  // Email
   const handleEmailClick = () => {
     const email = "ashadulislam6156rs@gmail.com";
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     if (isMobile) window.location.href = `mailto:${email}`;
     else
       window.open(
@@ -20,102 +19,95 @@ const Contact = () => {
       );
   };
 
-  const handlePhoneClick = () => {
+  // Phone
+  const handlePhoneClick = async () => {
     const phone = "+8801859246156";
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     if (isMobile) window.location.href = `tel:${phone}`;
     else {
-      navigator.clipboard.writeText(phone);
-      alert(`${phone} copied to clipboard!`);
+      await navigator.clipboard.writeText(phone);
+      toast.success("Phone number copied 📞");
     }
   };
 
+  // WhatsApp
   const handleWhatsappClick = () => {
-    const phone = "01859246156";
+    const phone = "8801859246156";
     const message = "Hello, I visited your portfolio";
     const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    if (isMobile) window.location.href = waLink;
-    else window.open(waLink, "_blank");
+    isMobile ? (window.location.href = waLink) : window.open(waLink, "_blank");
   };
-
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
-    // const email = e.target.email.value;
-    toast.success(`Thank you ${name}! Your message has been received.`)
-    
-  }
+    toast.success(`Thank you ${name}! Your message has been received 🚀`);
+    e.target.reset();
+  };
+
+  /* ================= THEME COLORS ================= */
+  const sectionBg = theme === "dark" ? "bg-background-dark" : "bg-[#f8fafc]";
+
+  const headingText = theme === "dark" ? "text-white" : "text-slate-800";
+
+  const mutedText = theme === "dark" ? "text-[#ffffff83]" : "text-slate-600";
+
+  const cardBg =
+    theme === "dark"
+      ? "bg-[#182934] border-[#315168]"
+      : "bg-white border-slate-200 shadow-sm";
+
+  const inputBg =
+    theme === "dark"
+      ? "bg-[#182934] text-white border-[#315168]"
+      : "bg-white text-slate-800 border-slate-300";
+
+  /* ================================================= */
 
   return (
-    <section id="contact" className="flex-1 py-7 md:py-20 bg-background-dark">
+    <section id="contact" className={`flex-1 py-7 md:py-20 ${sectionBg}`}>
       <div className="px-4 sm:px-10 max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="flex flex-wrap justify-between gap-3 mb-10">
-          <div className="flex min-w-72 flex-col gap-3">
-            <p className="text-white text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">
-              Get In Touch
-            </p>
-            <p className="text-[#ffffff83] text-base font-normal leading-normal max-w-md">
-              Have a question, a project in mind, or just want to say hello? I'd
-              love to hear from you. Fill out the form or use the contact
-              details provided.
-            </p>
-          </div>
+        <div className="mb-10">
+          <h2 className={`text-4xl sm:text-5xl font-black ${headingText}`}>
+            Get In Touch
+          </h2>
+          <p className={`mt-3 max-w-md ${mutedText}`}>
+            Have a question, a project in mind, or just want to say hello? I'd
+            love to hear from you.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Form */}
           <div className="lg:col-span-3">
             <form onSubmit={handleFormSubmit} className="flex flex-col gap-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <label className="flex flex-col flex-1">
-                  <p className="text-white text-base font-medium pb-2">
-                    Your Name
-                  </p>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Enter your full name"
-                    name="name"
-                    className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50"
-                  />
-                </label>
-
-                <label className="flex flex-col flex-1">
-                  <p className="text-white text-base font-medium pb-2">
-                    Your Email
-                  </p>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="Enter your email address"
-                    className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50"
-                  />
-                </label>
+              <div className="grid sm:grid-cols-2 gap-6">
+                <input
+                  name="name"
+                  required
+                  placeholder="Your Name"
+                  className={`h-14 px-4 rounded-lg border focus:ring-2 focus:ring-[#04bfff]/50 outline-none ${inputBg}`}
+                />
+                <input
+                  type="email"
+                  required
+                  placeholder="Your Email"
+                  className={`h-14 px-4 rounded-lg border focus:ring-2 focus:ring-[#04bfff]/50 outline-none ${inputBg}`}
+                />
               </div>
 
-              <label className="flex flex-col">
-                <p className="text-white text-base font-medium pb-2">Subject</p>
-                <input
-                  type="text"
-                  placeholder="What is this about?"
-                  className="form-input flex w-full rounded-lg h-14 p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50"
-                />
-              </label>
+              <input
+                placeholder="Subject"
+                className={`h-14 px-4 rounded-lg border focus:ring-2 focus:ring-[#04bfff]/50 outline-none ${inputBg}`}
+              />
 
-              <label className="flex flex-col">
-                <p className="text-white text-base font-medium pb-2">Message</p>
-                <textarea
-                  placeholder="Write your message here..."
-                  rows={6}
-                  className="form-textarea flex w-full rounded-lg p-[15px] text-base text-white placeholder:text-[#90b2cb] bg-[#182934] border border-[#315168] focus:outline-0 focus:ring-2 focus:ring-[#04bfff]/50 resize-y"
-                ></textarea>
-              </label>
+              <textarea
+                rows={6}
+                placeholder="Write your message..."
+                className={`px-4 py-3 rounded-lg border focus:ring-2 focus:ring-[#04bfff]/50 outline-none resize-y ${inputBg}`}
+              />
 
-              <button className="w-full sm:w-auto h-12 px-6 bg-[#04bfff] text-black font-bold rounded-lg hover:bg-[#04bfff]/90 transition-colors">
+              <button className="h-12 px-6 bg-[#04bfff] text-black font-bold rounded-lg hover:bg-[#04bfff]/90 transition">
                 Send Message
               </button>
             </form>
@@ -123,72 +115,36 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="lg:col-span-2">
-            <div className="flex flex-col gap-8 p-6 rounded-xl bg-[#182934] border border-[#315168]">
-              <h3 className="text-white text-xl font-bold">
-                Contact Information
-              </h3>
-              <div className="flex flex-col gap-6">
-                {/* Email */}
-                <div
-                  onClick={handleEmailClick}
-                  className="flex items-center gap-4 cursor-pointer hover:opacity-90 transition-opacity"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
-                    <MdMail size={24} />
-                  </div>
-                  <div>
-                    <p className="text-[#ffffff83] text-sm">Email</p>
-                    <p className="text-white text-base font-medium hover:text-[#04bfff] transition-colors">
-                      ashadulislam6156rs@gmail.com
-                    </p>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div
-                  onClick={handlePhoneClick}
-                  className="flex items-center gap-4 cursor-pointer hover:opacity-90 transition-opacity"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
-                    <FaPhone size={20} />
-                  </div>
-                  <div>
-                    <p className="text-[#ffffff83] text-sm">Phone</p>
-                    <p className="text-white text-base font-medium hover:text-[#04bfff] transition-colors">
-                      +8801859246156
-                    </p>
-                  </div>
-                </div>
-
-                {/* WhatsApp */}
-                <div
-                  onClick={handleWhatsappClick}
-                  className="flex items-center gap-4 cursor-pointer hover:opacity-90 transition-opacity"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
-                    <FaWhatsapp size={20} />
-                  </div>
-                  <div>
-                    <p className="text-[#ffffff83] text-sm">WhatsApp</p>
-                    <p className="text-white text-base font-medium hover:text-[#04bfff] transition-colors">
-                      01859246156
-                    </p>
-                  </div>
-                </div>
-
-                {/* Location */}
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
-                    <MdLocationOn size={24} />
-                  </div>
-                  <div>
-                    <p className="text-[#ffffff83] text-sm">Location</p>
-                    <p className="text-white text-base font-medium">
-                      Uttara, Dhaka-Bangladesh
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div
+              className={`flex flex-col gap-6 p-6 rounded-xl border ${cardBg}`}
+            >
+              <InfoItem
+                theme={theme}
+                icon={<MdMail size={24} />}
+                label="Email"
+                value="ashadulislam6156rs@gmail.com"
+                onClick={handleEmailClick}
+              />
+              <InfoItem
+                theme={theme}
+                icon={<FaPhone size={20} />}
+                label="Phone"
+                value="+8801859246156"
+                onClick={handlePhoneClick}
+              />
+              <InfoItem
+                theme={theme}
+                icon={<FaWhatsapp size={20} />}
+                label="WhatsApp"
+                value="01859246156"
+                onClick={handleWhatsappClick}
+              />
+              <InfoItem
+                theme={theme}
+                icon={<MdLocationOn size={24} />}
+                label="Location"
+                value="Uttara, Dhaka - Bangladesh"
+              />
             </div>
           </div>
         </div>
@@ -197,5 +153,37 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+/* ================= INFO ITEM ================= */
 
+const InfoItem = ({ icon, label, value, onClick, theme }) => (
+  <div
+    onClick={onClick}
+    className={`flex items-center gap-4 ${
+      onClick ? "cursor-pointer hover:opacity-90" : ""
+    }`}
+  >
+    <div className="h-12 w-12 flex items-center justify-center rounded-full bg-[#04bfff]/20 text-[#04bfff]">
+      {icon}
+    </div>
+    <div>
+      <p
+        className={`text-sm ${
+          theme === "dark" ? "text-[#ffffff83]" : "text-slate-500"
+        }`}
+      >
+        {label}
+      </p>
+      <p
+        className={`font-medium transition ${
+          theme === "dark"
+            ? "text-white hover:text-[#04bfff]"
+            : "text-slate-800 hover:text-[#04bfff]"
+        }`}
+      >
+        {value}
+      </p>
+    </div>
+  </div>
+);
+
+export default Contact;

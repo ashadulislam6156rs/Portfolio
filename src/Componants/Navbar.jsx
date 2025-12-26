@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Container from "./Container";
+import useTheme from "../hook/useTheme";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { setTheme, theme } = useTheme();
 
 
   const handleEmailClick = () => {
@@ -29,18 +32,29 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    if (darkMode) document.documentElement.classList.add("dark");
-    else document.documentElement.classList.remove("dark");
-  }, [darkMode]);
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleThemeToggol = () => {
+    setTheme(darkMode ? "dark" : "light");
+  }
+
     
 
   return (
-    <div className="fixed bg-[#000000c5] top-0 left-0 w-full z-50 dark:bg-gray-900 shadow-sm shadow-gray-600">
+    <div
+      className="fixed bg-[#000000c5] top-0 left-0 w-full z-50 shadow-sm shadow-gray-600"
+      style={{
+        backgroundColor: theme === "dark" ? "#1a1a1a" : "#ffffff",
+      }}
+    >
       <Container>
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <a className="text-2xl font-bold dark:text-white" href="#">
+          <div className="shrink-0">
+            <a className="text-2xl font-bold" href="#">
               Asha<span className="text-[#00bfff]">dul</span> islam
             </a>
           </div>
@@ -51,12 +65,12 @@ const Navbar = () => {
               <ScrollLink
                 key={link.to}
                 to={link.to}
-                spy={true} // scroll অনুসারে active class
+                spy={true}
                 smooth={true}
-                offset={-80} // Navbar height adjust
+                offset={-80}
                 duration={500}
-                className="text-sm font-medium cursor-pointer dark:text-gray-300 hover:text-[#00bfff]"
-                activeClass="text-white border-b-2 border-[#00bfff] pb-1"
+                className="text-sm font-medium cursor-pointer hover:text-[#00bfff]"
+                activeClass=" border-b-2 text-[#00bfff] border-[#00bfff] pb-1"
               >
                 {link.name}
               </ScrollLink>
@@ -66,8 +80,11 @@ const Navbar = () => {
           {/* CTA + Dark Mode Toggle + Mobile Menu */}
           <div className="flex items-center gap-4">
             <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-full bg-gray-700 text-white text-sm hover:bg-gray-600 transition-colors"
+              onClick={() => {
+                setDarkMode(!darkMode);
+                handleThemeToggol();
+              }}
+              className="p-2 rounded-full cursor-pointer bg-gray-700 text-white text-sm hover:bg-gray-600 transition-colors"
             >
               {darkMode ? "☀️" : "🌙"}
             </button>
@@ -75,32 +92,35 @@ const Navbar = () => {
             <button
               className="hidden cursor-pointer sm:inline-block bg-[#00bfff] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#00bfff]/90 transition-all shadow-lg hover:shadow-xl"
               onClick={() => {
-                 handleEmailClick();
+                handleEmailClick();
               }}
             >
               Hire Me
             </button>
 
             <button
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-              className="md:hidden flex flex-col space-y-1.5 p-2"
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden flex flex-col justify-center space-y-1.5 p-2"
             >
+              {/* Top line */}
               <span
-                className={`block w-6 h-0.5 bg-white transition-transform ${
+                className={`block w-6 h-0.5 transition-all duration-300 ${
                   isOpen ? "rotate-45 translate-y-2" : ""
-                }`}
+                } ${theme === "dark" ? "bg-white" : "bg-black"}`}
               ></span>
+
+              {/* Middle line */}
               <span
-                className={`block w-6 h-0.5 bg-white transition-opacity ${
+                className={`block w-6 h-0.5 transition-all duration-300 ${
                   isOpen ? "opacity-0" : "opacity-100"
-                }`}
+                } ${theme === "dark" ? "bg-white" : "bg-black"}`}
               ></span>
+
+              {/* Bottom line */}
               <span
-                className={`block w-6 h-0.5 bg-white transition-transform ${
+                className={`block w-6 h-0.5 transition-all duration-300 ${
                   isOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
+                } ${theme === "dark" ? "bg-white" : "bg-black"}`}
               ></span>
             </button>
           </div>
@@ -108,7 +128,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 animate-slideDown">
+          <div className="md:hidden bg-white border-t border-gray-200">
             <nav className="flex flex-col items-start p-4 space-y-3">
               {links.map((link) => (
                 <ScrollLink
@@ -119,7 +139,7 @@ const Navbar = () => {
                   offset={-80}
                   duration={500}
                   onClick={() => setIsOpen(false)}
-                  className="text-sm font-medium cursor-pointer text-gray-600 dark:text-gray-300 hover:text-[#00bfff]"
+                  className="text-sm font-medium cursor-pointer text-gray-600 hover:text-[#00bfff]"
                   activeClass="text-[#00bfff]"
                 >
                   {link.name}
