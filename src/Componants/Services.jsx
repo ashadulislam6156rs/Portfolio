@@ -10,10 +10,10 @@ import {
 import AOS from "aos";
 
 import Container from "./Container";
-import useTheme from "../hook/useTheme";
+
 
 const Services = () => {
-  const { theme } = useTheme(); // custom theme: "dark" | "light"
+
 
   useEffect(() => {
     AOS.refresh();
@@ -62,17 +62,13 @@ const Services = () => {
     <Container>
       <section
         id="services"
-        className={`py-3 font-display ${
-          theme === "dark" ? "bg-background-dark" : "bg-background-light"
-        }`}
+        className={`py-3 font-display bg-background-light dark:bg-background-dark`}
       >
         <div>
           {/* Section Title */}
           <div className="text-center mb-12" data-aos="zoom-in">
             <h2
-              className={`text-3xl sm:text-4xl font-bold ${
-                theme === "dark" ? "text-white" : "text-slate-800"
-              }`}
+              className={`text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white`}
             >
               My <span className="text-[#04bfff]">Services</span>
             </h2>
@@ -89,13 +85,7 @@ const Services = () => {
                 data-aos-easing="ease-out-cubic"
                 className={`
                   rounded-lg p-8 flex flex-col items-start text-left
-                  transform hover:-translate-y-2 transition-transform duration-300
-
-                  ${
-                    theme === "dark"
-                      ? "bg-[#1d293b] shadow-lg hover:shadow-[#04bfff]"
-                      : "bg-white shadow-md hover:shadow-lg"
-                  }
+                  transform hover:-translate-y-2 transition-transform duration-300 bg-white shadow-md hover:shadow-lg dark:bg-[#1d293b] dark:shadow-lg dark:hover:shadow-[#04bfff]
                 `}
               >
                 {/* Icon */}
@@ -103,18 +93,14 @@ const Services = () => {
 
                 {/* Title */}
                 <h3
-                  className={`text-xl font-bold mb-3 ${
-                    theme === "dark" ? "text-white" : "text-slate-800"
-                  }`}
+                  className={`text-xl font-bold mb-3 text-slate-800 dark:text-white`}
                 >
                   {service.title}
                 </h3>
 
                 {/* Description */}
                 <p
-                  className={`mb-6 flex-grow ${
-                    theme === "dark" ? "text-[#ffffff83]" : "text-slate-600"
-                  }`}
+                  className={`mb-6 grow text-slate-600 dark:text-[#ffffff83]`}
                 >
                   {service.description}
                 </p>

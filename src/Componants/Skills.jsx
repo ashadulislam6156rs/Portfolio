@@ -19,7 +19,6 @@ import {
 } from "react-icons/si";
 import Container from "./Container";
 import AOS from "aos";
-import useTheme from "../hook/useTheme";
 
 const frontendSkills = [
   { name: "HTML5", icon: <FaHtml5 size={40} /> },
@@ -43,7 +42,9 @@ const toolsSkills = [
   { name: "Firebase", icon: <RiFirebaseFill size={40} /> },
 ];
 
-const SkillGroup = ({ title, skills, theme }) => (
+/* ================= SKILL GROUP ================= */
+
+const SkillGroup = ({ title, skills }) => (
   <div className="mb-12">
     <h3
       data-aos="fade-up"
@@ -58,30 +59,32 @@ const SkillGroup = ({ title, skills, theme }) => (
           key={idx}
           data-aos="fade-up"
           data-aos-delay={idx * 100}
-          className={`
+          className="
             group flex flex-col items-center justify-center gap-3 rounded-xl p-6
-            transition-all duration-300
-            ${
-              theme === "dark"
-                ? "bg-slate-900/50 border border-slate-800 hover:border-[#04bfff]/50 hover:bg-[#04bfff]/10"
-                : "bg-white border border-slate-200 hover:border-[#04bfff]/50 hover:bg-[#04bfff]/10"
-            }
-          `}
+            border transition-all duration-300
+            bg-white border-slate-200
+            hover:border-[#04bfff]/50 hover:bg-[#04bfff]/10
+
+            dark:bg-slate-900/50 dark:border-slate-800
+            dark:hover:border-[#04bfff]/50 dark:hover:bg-[#04bfff]/10
+          "
         >
           <div
-            className={`transition-colors duration-300 ${
-              theme === "dark"
-                ? "text-white group-hover:text-[#04bfff]"
-                : "text-slate-700 group-hover:text-[#04bfff]"
-            }`}
+            className="
+            transition-colors duration-300
+            text-slate-700 group-hover:text-[#04bfff]
+            dark:text-white dark:group-hover:text-[#04bfff]
+          "
           >
             {skill.icon}
           </div>
 
           <h3
-            className={`text-base font-semibold ${
-              theme === "dark" ? "text-slate-200" : "text-slate-800"
-            }`}
+            className="
+            text-base font-semibold
+            text-slate-800
+            dark:text-slate-200
+          "
           >
             {skill.name}
           </h3>
@@ -91,9 +94,9 @@ const SkillGroup = ({ title, skills, theme }) => (
   </div>
 );
 
-const Skills = () => {
-  const { theme } = useTheme();
+/* ================= MAIN COMPONENT ================= */
 
+const Skills = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: false, easing: "ease-in-out" });
   }, []);
@@ -102,40 +105,36 @@ const Skills = () => {
     <Container>
       <section
         id="skill"
-        className={`py-16 sm:py-18 font-display ${
-          theme === "dark" ? "bg-background-dark" : "bg-background-light"
-        }`}
+        className="py-16 sm:py-18 font-display
+          bg-background-light
+          dark:bg-background-dark"
       >
         {/* Section Header */}
         <div data-aos="fade-down" className="text-center mb-12">
           <h2
-            className={`text-3xl sm:text-4xl font-bold ${
-              theme === "dark" ? "text-white" : "text-slate-800"
-            }`}
+            className="
+            text-3xl sm:text-4xl font-bold
+            text-slate-800
+            dark:text-white
+          "
           >
             My <span className="text-[#04bfff]">Skills</span>
           </h2>
 
           <p
-            className={`mt-3 text-lg ${
-              theme === "dark" ? "text-slate-400" : "text-slate-600"
-            }`}
+            className="
+            mt-3 text-lg
+            text-slate-600
+            dark:text-slate-400
+          "
           >
             Technologies and tools I work with
           </p>
         </div>
 
         {/* Skill Groups */}
-        <SkillGroup
-          title="Frontend Development"
-          skills={frontendSkills}
-          theme={theme}
-        />
-        <SkillGroup
-          title="Tools & Deployment"
-          skills={toolsSkills}
-          theme={theme}
-        />
+        <SkillGroup title="Frontend Development" skills={frontendSkills} />
+        <SkillGroup title="Tools & Deployment" skills={toolsSkills} />
       </section>
     </Container>
   );

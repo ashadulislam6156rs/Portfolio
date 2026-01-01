@@ -4,11 +4,10 @@ import Container from "./Container";
 import useInView from "./useInView";
 import Counter from "./Counter";
 import { motion } from "framer-motion";
-import useTheme from "../hook/useTheme";
 
 const About = () => {
   const { ref, inView } = useInView();
-  const { theme } = useTheme();
+
 
   const fadeInLeft = {
     hidden: { opacity: 0, x: -50 },
@@ -66,9 +65,7 @@ const About = () => {
             </h2>
 
             <p
-              className={`text-base sm:text-lg leading-relaxed ${
-                theme === "dark" ? "text-slate-400" : "text-[#0000009f]"
-              }`}
+              className={`text-base sm:text-lg leading-relaxed text-[#0000009f] dark:text-slate-400`}
             >
               Hello, I’m Ashadul Islam. I’m a passionate MERN Stack Developer
               with a strong focus on building modern, clean, and scalable web
@@ -89,9 +86,7 @@ const About = () => {
                 animate={inView ? "visible" : "hidden"}
               >
                 <p
-                  className={`text-3xl sm:text-4xl font-bold ${
-                    theme === "dark" ? "text-white" : "text-black"
-                  }`}
+                  className={`text-3xl sm:text-4xl font-bold text-black dark:text-white`}
                 >
                   <Counter end={35} start={inView} />
                   <span className="text-[#04bfff]">+</span>
@@ -105,9 +100,7 @@ const About = () => {
                 animate={inView ? "visible" : "hidden"}
               >
                 <p
-                  className={`text-3xl sm:text-4xl font-bold ${
-                    theme === "dark" ? "text-white" : "text-black"
-                  }`}
+                  className={`text-3xl sm:text-4xl font-bold text-black dark:text-white`}
                 >
                   <Counter end={97} start={inView} />
                   <span className="text-[#04bfff]">%</span>
@@ -123,9 +116,7 @@ const About = () => {
                 animate={inView ? "visible" : "hidden"}
               >
                 <p
-                  className={`text-3xl sm:text-4xl font-bold  ${
-                    theme === "dark" ? "text-white" : "text-black"
-                  }`}
+                  className={`text-3xl sm:text-4xl font-bold text-black dark:text-white`}
                 >
                   <Counter end={1} start={inView} />
                   <span className="text-[#04bfff]">+</span>

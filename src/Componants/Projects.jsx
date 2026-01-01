@@ -10,7 +10,7 @@ import smartAppsImg from "../assets/demo-app.webp";
 import boiPokaImg from "../assets/books.jpg";
 import bplImg from "../assets/banner-main.png";
 import AOS from "aos";
-import useTheme from "../hook/useTheme";
+
 
 const projects = [
   {
@@ -34,7 +34,7 @@ const projects = [
   {
     title: "Coffee Garden",
     description:
-      "Coffee Garden is a modern Next.js application that allows users to discover different coffee types.",
+      "Coffee Garden is a modern Next.js application that allows users to discover, explore, and learn about different coffee types easily.",
     image: coffeeGardenImg,
     tags: ["Next.js", "React.js", "Express.js", "MongoDB"],
     live: "https://coffee-garden-delta.vercel.app/",
@@ -79,7 +79,7 @@ const projects = [
 ];
 
 const Projects = () => {
-  const { theme } = useTheme();
+
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 6;
 
@@ -100,15 +100,11 @@ const Projects = () => {
     <Container>
       <section
         id="projects"
-        className={`py-7 sm:py-5 font-display ${
-          theme === "dark" ? "bg-background-dark" : "bg-background-light"
-        }`}
+        className={`py-7 sm:py-5 font-display bg-background-light dark:bg-background-dark`}
       >
         <h2
           data-aos="fade-up"
-          className={`text-3xl text-center font-bold pb-5 pt-7 sm:text-4xl ${
-            theme === "dark" ? "text-white" : "text-[#04bfff]"
-          }`}
+          className={`text-3xl text-center font-bold pb-5 pt-7 sm:text-4xl text-[#04bfff] dark:text-white`}
         >
           My Projects
         </h2>
@@ -122,12 +118,8 @@ const Projects = () => {
               data-aos-delay={idx * 80}
               className={`
                 flex flex-col overflow-hidden rounded-xl transition-all duration-300
-                hover:-translate-y-1 hover:shadow-md hover:shadow-[#04bfff]
-                ${
-                  theme === "dark"
-                    ? "bg-[#1A202C]/50 ring-1 ring-white/10"
-                    : "bg-white ring-1 ring-slate-200"
-                }
+                hover:-translate-y-1 hover:shadow-md hover:shadow-[#04bfff] bg-white ring-1 ring-slate-200 dark:bg-[#1A202C]/50  dark:ring-white/10
+                
               `}
             >
               <div
@@ -137,17 +129,13 @@ const Projects = () => {
 
               <div className="flex flex-1 flex-col p-6">
                 <h3
-                  className={`text-lg font-medium ${
-                    theme === "dark" ? "text-white" : "text-slate-800"
-                  }`}
+                  className={`text-lg font-medium text-slate-800 dark:text-white`}
                 >
                   {project.title}
                 </h3>
 
                 <p
-                  className={`mt-2 text-sm ${
-                    theme === "dark" ? "text-slate-400" : "text-slate-600"
-                  }`}
+                  className={`mt-2 text-sm text-slate-600 dark:text-slate-400`}
                 >
                   {project.description}
                 </p>
@@ -176,11 +164,7 @@ const Projects = () => {
                   <a
                     href={project.code}
                     target="_blank"
-                    className={`flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
-                      theme === "dark"
-                        ? "bg-slate-700 text-white hover:bg-slate-600"
-                        : "bg-slate-200 text-slate-700 hover:bg-slate-300"
-                    }`}
+                    className={`flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors bg-slate-200 text-slate-700 hover:bg-slate-300 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600`}
                   >
                     <IoMdCode size={18} />
                     View Code
@@ -196,7 +180,7 @@ const Projects = () => {
           <div className="flex gap-2">
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              className="h-9 w-9 rounded-lg text-[#04bfff]"
+              className="h-9 cursor-pointer w-9 rounded-lg text-[#04bfff]"
             >
               <AiOutlineLeft />
             </button>
@@ -205,12 +189,10 @@ const Projects = () => {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`h-9 w-9 rounded-lg ${
+                className={`h-9 w-9 rounded-lg cursor-pointer text-slate-600 dark:text-slate-400 ${
                   page === currentPage
                     ? "border border-[#04bfff] text-[#04bfff]"
-                    : theme === "dark"
-                    ? "text-slate-400"
-                    : "text-slate-600"
+                    : ""
                 }`}
               >
                 {page}
@@ -219,7 +201,7 @@ const Projects = () => {
 
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-              className="h-9 w-9 rounded-lg text-[#04bfff]"
+              className="h-9 w-9 cursor-pointer rounded-lg text-[#04bfff]"
             >
               <AiOutlineRight />
             </button>

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Container from "./Container";
-import useTheme from "../hook/useTheme";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-  const { setTheme, theme } = useTheme();
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
 
 
   const handleEmailClick = () => {
