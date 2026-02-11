@@ -32,6 +32,15 @@ const projects = [
     code: "https://github.com/ashadulislam6156rs/PlateShare-Community-Client.git",
   },
   {
+    title: "SmartGarden",
+    description:
+      "SmartGarden is a web-based platform where users (clients) can easily order plants, flowers, and other garden-related products online.",
+    image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411",
+    tags: ["TypeScript", "Next.js", "NextAuth", "MongoDB"],
+    live: "https://smart-garden-gules.vercel.app/",
+    code: "https://github.com/ashadulislam6156rs/smart-garden-with-next-and-typescript.git",
+  },
+  {
     title: "Coffee Garden",
     description:
       "Coffee Garden is a modern Next.js application that allows users to discover, explore, and learn about different coffee types easily.",

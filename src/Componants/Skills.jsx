@@ -15,15 +15,18 @@ import {
   SiMongodb,
   SiNetlify,
   SiNextdotjs,
+  SiTypescript,
   SiVercel,
 } from "react-icons/si";
 import Container from "./Container";
 import AOS from "aos";
+import { MdSecurity } from "react-icons/md";
 
 const frontendSkills = [
   { name: "HTML5", icon: <FaHtml5 size={40} /> },
   { name: "CSS3", icon: <FaCss3Alt size={40} /> },
   { name: "JavaScript", icon: <FaJs size={40} /> },
+  { name: "TypeScript", icon: <SiTypescript size={40} /> },
   { name: "React.js", icon: <FaReact size={40} /> },
   { name: "Next.js", icon: <SiNextdotjs size={40} /> },
   { name: "Tailwind CSS", icon: <RiTailwindCssFill size={40} /> },
@@ -31,6 +34,7 @@ const frontendSkills = [
   { name: "Express.js", icon: <SiExpress size={40} /> },
   { name: "MongoDB", icon: <SiMongodb size={40} /> },
   { name: "Firebase", icon: <RiFirebaseFill size={40} /> },
+  { name: "NextAuth", icon: <MdSecurity size={40} /> },
 ];
 
 const toolsSkills = [
@@ -133,7 +137,7 @@ const Skills = () => {
         </div>
 
         {/* Skill Groups */}
-        <SkillGroup title="Frontend Development" skills={frontendSkills} />
+        <SkillGroup title="Frontend & Backend Development" skills={frontendSkills} />
         <SkillGroup title="Tools & Deployment" skills={toolsSkills} />
       </section>
     </Container>
