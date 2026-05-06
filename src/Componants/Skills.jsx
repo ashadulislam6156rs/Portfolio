@@ -7,12 +7,14 @@ import {
   FaNodeJs,
   FaGitAlt,
   FaGithub,
+  FaCpanel,
 } from "react-icons/fa";
 import { RiFirebaseFill, RiTailwindCssFill } from "react-icons/ri";
 import {
   SiCloudflare,
   SiExpress,
   SiMongodb,
+  SiMysql,
   SiNetlify,
   SiNextdotjs,
   SiTypescript,
@@ -33,6 +35,7 @@ const frontendSkills = [
   { name: "Node.js", icon: <FaNodeJs size={40} /> },
   { name: "Express.js", icon: <SiExpress size={40} /> },
   { name: "MongoDB", icon: <SiMongodb size={40} /> },
+  { name: "Mysql", icon: <SiMysql  size={40} /> },
   { name: "Firebase", icon: <RiFirebaseFill size={40} /> },
   { name: "NextAuth", icon: <MdSecurity size={40} /> },
 ];
@@ -40,6 +43,7 @@ const frontendSkills = [
 const toolsSkills = [
   { name: "Git", icon: <FaGitAlt size={40} /> },
   { name: "GitHub", icon: <FaGithub size={40} /> },
+  { name: "Cpanel", icon: <FaCpanel  size={40} /> },
   { name: "Vercel", icon: <SiVercel size={40} /> },
   { name: "Netlify", icon: <SiNetlify size={40} /> },
   { name: "Cloudflare", icon: <SiCloudflare size={40} /> },

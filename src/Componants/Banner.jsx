@@ -164,7 +164,7 @@ const Banner = () => {
               transition={{ delay: 0.7 }}
               whileHover={{ scale: 1.05 }}
               className="mt-8 flex gap-2 items-center self-center lg:self-start bg-[#04bfff] text-black font-medium py-3 px-8 rounded-full shadow-[0_0_15px_#04bfff] hover:shadow-[0_0_30px_#04bfff]"
-              href="/Full-Stack_Ashadul_islam.pdf"
+              href="/Full_Stack_Developer_Ashadul_islam.pdf"
               download
             >
               <FaDownload />

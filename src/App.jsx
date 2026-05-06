@@ -11,6 +11,7 @@ import Services from "./Componants/Services";
 import Skills from "./Componants/Skills";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Experience from "./Componants/Experience";
 
 function App() {
 
@@ -25,9 +26,10 @@ function App() {
       <Navbar></Navbar>
       <Banner></Banner>
       <About></About>
-      <Services></Services>
-      <Projects></Projects>
+      <Experience></Experience>
       <Skills></Skills>
+      <Projects></Projects>
+         <Services></Services>
       <EducationTimeline></EducationTimeline>
       {/* <ClientTestimonials></ClientTestimonials> */}
       <Contact></Contact>

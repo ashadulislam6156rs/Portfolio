@@ -14,7 +14,7 @@ const educationData = [
     year: "2020-2021",
     title: "HSC",
     institution: "Royel Media College Mymensingh",
-    description: "Science group, GPA 4.10",
+    description: "Science group, GPA 4.08",
   },
   {
     year: "2018-2019",

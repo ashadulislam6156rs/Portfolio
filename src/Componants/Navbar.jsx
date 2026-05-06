@@ -23,9 +23,10 @@ const Navbar = () => {
   const links = [
     { name: "Home", to: "home" },
     { name: "About Us", to: "about" },
-    { name: "Services", to: "services" },
-    { name: "Projects", to: "projects" },
+    { name: "Experience", to: "experience" },
     { name: "Skill", to: "skill" },
+    { name: "Projects", to: "projects" },
+    { name: "Services", to: "services" },
     { name: "Education", to: "education" },
     { name: "Contact", to: "contact" },
   ];
