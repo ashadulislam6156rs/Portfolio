@@ -3,6 +3,7 @@ import { AiOutlineEye, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { IoMdCode } from "react-icons/io";
 import Container from "./Container";
 import plateShareImg from "../assets/banner-2.png";
+import traveleeImg from "../assets/Travelee.jpg";
 import coffeeGardenImg from "../assets/17.png";
 import toyTalesImg from "../assets/toy-2.png";
 import eTuitionTrackImg from "../assets/eTuitionTrack.jpg";
@@ -21,6 +22,15 @@ const projects = [
     tags: ["React", "Node.js", "Express.js", "MongoDB"],
     live: "https://etuitiontrack.netlify.app/",
     code: "https://github.com/ashadulislam6156rs/eTuitionTrack-Client.git",
+  },
+  {
+    title: "Travel Planning Platform",
+    description:
+      "Travelee is a collaborative platform designed to help travelers plan itineraries, track budgets, and discover hidden gems across the globe. Built by the [Team Name] team.",
+    image: traveleeImg,
+    tags: ["Next.js", "Node.js", "Express.js", "MongoDB"],
+    live: "https://travelee-client.vercel.app/",
+    code: "https://github.com/ashadulislam6156rs/travelee-client",
   },
   {
     title: "PlateShare Community",

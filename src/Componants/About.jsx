@@ -76,7 +76,7 @@ const About = () => {
             </p>
 
             {/* Stats */}
-            <div
+            {/* <div
               ref={ref}
               className="grid grid-cols-2 sm:grid-cols-3 gap-8 text-center lg:text-left mt-6"
             >
@@ -125,7 +125,7 @@ const About = () => {
                   Years of Experience
                 </p>
               </motion.div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
